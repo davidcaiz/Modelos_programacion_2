@@ -18,7 +18,7 @@ def jugar(baraja,jugador, cpu):
     print (jugador)
     print (cpu)
     print (contar(jugador,0))
-    if(contar(jugador,0) <= 21):
+    if(contar(jugador,0) < 21):
         if(input("Pedir carta s/n: ") == "s"):
             return jugar(baraja[1:], repartirCarta(baraja[1:],jugador), cpu)
         else:
@@ -26,6 +26,9 @@ def jugar(baraja,jugador, cpu):
             return jugarCpu(baraja[1:],cpu,contar(jugador,0))
     elif(contar(jugador,0) > 21):
         print ("Has perdido")
+        exit()
+    elif (contar(jugador,0)==21):
+        print ("Has ganado")
         exit()
     return 0
 
